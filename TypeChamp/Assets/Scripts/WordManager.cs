@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
 public class WordManager : MonoBehaviour {
 
@@ -10,18 +8,21 @@ public class WordManager : MonoBehaviour {
     public List<Word> words;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI levelText;
+    public TextMeshProUGUI faultsText;
     private bool isActive = false;
     private bool isChanged = false;
     private int levelBound = 100;
     private Word activeWord;
+    
     public int scoreMultiplier = 1;
+    public int faults = 5;
     public int score = 0;
     
     private void Update()
     {
         
         scoreText.text = "Score: " + score;
-
+        faultsText.text = "Faults left: " + faults;
         if (score == levelBound && isChanged == false)
         {
             scoreMultiplier++;
@@ -34,7 +35,7 @@ public class WordManager : MonoBehaviour {
         {
             isChanged = false;
         }
-
+        
     }
 
     public void AddWord()
@@ -70,8 +71,10 @@ public class WordManager : MonoBehaviour {
 
             if (isActive && activeWord.IsTyped())
             {
+                
                 isActive = false;
                 words.Remove(activeWord);
+                
                 score += 10 * scoreMultiplier;
             }
         }

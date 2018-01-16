@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class Word {
@@ -39,9 +37,9 @@ public class Word {
     }
 
     public void LetterIsTyped()
-    {
-        index++;
-        //Remove the letter on the screen
+    {   
+        //Remove letter on the screen
         displayer.RemoveLetter();
+        index++;
     }
 }

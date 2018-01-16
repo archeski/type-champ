@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnTimer : MonoBehaviour {
 
@@ -14,7 +12,7 @@ public class SpawnTimer : MonoBehaviour {
         {
             wordManager.AddWord();
             nextWordTime = Time.time + spawnDelay;
-            //spawnDelay *= 0.9f; 
+
         }
 	}
 }

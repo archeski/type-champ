@@ -12,14 +12,6 @@ public class WordDisplayer : MonoBehaviour {
     public void SetWord (string word)
     {
         wordTextPrefab.text = word;
-
-
-        //determine how to change text gradient 
-        //wordTextPrefab.colorGradient = TMP_ColorGradient;
-        //if (word.Length <= 7 && word.Length >= 4)
-        //    wordTextPrefab.color = Color.green;
-        //else if (word.Length >7)
-        //    wordTextPrefab.color = Color.cyan;
     }
 
     public void RemoveLetter()
@@ -32,15 +24,19 @@ public class WordDisplayer : MonoBehaviour {
     {
         Destroy(gameObject);
     }
+ 
 
     void Update ()
     {
+      
         //Need to add dependence between falling and spawning a new word
         //Word falling doesn't work properly
         transform.Translate(0f, (-fallSpeed * Time.deltaTime)/2, 0f);
 
         if (gameObject.transform.position.y <= -350f)
+        {
             RemoveWord();
+        }
 
         fallSpeed/= 0.999f; 
 
