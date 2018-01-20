@@ -1,9 +1,6 @@
-﻿using UnityEngine;
-
-[System.Serializable]
+﻿[System.Serializable]
 public class Word {
 
-    public decimal score = 0;
     public string text;
     private int index;
 	
@@ -29,7 +26,6 @@ public class Word {
         if (index >=text.Length)
         {
             displayer.RemoveWord();
-            score += 10;
             return true;
         }
         return false;

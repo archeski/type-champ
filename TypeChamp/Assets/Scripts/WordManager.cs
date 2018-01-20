@@ -8,21 +8,25 @@ public class WordManager : MonoBehaviour {
     public List<Word> words;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI levelText;
-    public TextMeshProUGUI faultsText;
+    public float spawnDelay = 10f;
+    public int scoreMultiplier = 1;
+    public int score = 0;
     private bool isActive = false;
     private bool isChanged = false;
     private int levelBound = 100;
     private Word activeWord;
-    
-    public int scoreMultiplier = 1;
-    public int faults = 5;
-    public int score = 0;
+    private float nextWordTime = 0f;
     
     private void Update()
     {
-        
+        foreach (var letter in Input.inputString)
+        {
+            TypeSymbol(letter);
+            Debug.Log("Letter " + letter + " was typed");
+        }
+
         scoreText.text = "Score: " + score;
-        faultsText.text = "Faults left: " + faults;
+        
         if (score == levelBound && isChanged == false)
         {
             scoreMultiplier++;
@@ -35,12 +39,18 @@ public class WordManager : MonoBehaviour {
         {
             isChanged = false;
         }
-        
+
+        if (Time.time >= nextWordTime)
+        {
+            AddWord();
+            nextWordTime = Time.time + spawnDelay;
+        }
+
     }
 
     public void AddWord()
     {
-        Word word = new Word(WordGenerator.GetRandomWord(),spawner.SpawnWord());
+        Word word = new Word(WordParser.GetRandomWord(),spawner.SpawnWord());
         words.Add(word);
         Debug.Log("Random word was spawned succesfully : " + word.text);
     }

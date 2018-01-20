@@ -2,7 +2,7 @@
 using System.IO;
 using UnityEngine;
 
-public class WordGenerator : MonoBehaviour {
+public class WordParser : MonoBehaviour {
 
     private static  List<string> wordList = ReadWords();
 

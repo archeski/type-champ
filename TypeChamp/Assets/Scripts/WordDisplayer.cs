@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class WordDisplayer : MonoBehaviour {
 
     public TextMeshProUGUI wordTextPrefab;
     public float fallSpeed = 60f;
-    
+
+
     public void SetWord (string word)
     {
         wordTextPrefab.text = word;
@@ -25,10 +23,8 @@ public class WordDisplayer : MonoBehaviour {
         Destroy(gameObject);
     }
  
-
     void Update ()
     {
-      
         //Need to add dependence between falling and spawning a new word
         //Word falling doesn't work properly
         transform.Translate(0f, (-fallSpeed * Time.deltaTime)/2, 0f);
@@ -37,8 +33,6 @@ public class WordDisplayer : MonoBehaviour {
         {
             RemoveWord();
         }
-
-        fallSpeed/= 0.999f; 
-
+ 
 	}
 }
