@@ -11,5 +11,6 @@
 * [ ] GameOver screen
 * [ ] Full recast of falling/spawning behavior
 * [ ] Score system and serialization
+* [ ] Players list and It's serialization
 
 
