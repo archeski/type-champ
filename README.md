@@ -13,4 +13,13 @@
 * [ ] Score system and serialization
 * [ ] Players list
 
+### Demo screenshots ###
+
+[![image.png](https://s10.postimg.org/olpsfx7nt/image.png)](https://postimg.org/image/dyvzahzid/)
+
+[![image.png](https://s10.postimg.org/q0rd4qghl/image.png)](https://postimg.org/image/voxnvmktx/)
+
+[![image.png](https://s10.postimg.org/v0otcnyyx/image.png)](https://postimg.org/image/iytfiipqd/)
+
+
 
